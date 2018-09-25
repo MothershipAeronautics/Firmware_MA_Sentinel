@@ -1,0 +1,75 @@
+Aileron/Elevator/Throttle/Rudder/Gear/Flaps mixer
+==================================================
+This file controls the mixing for an eBlimp-style airship
+
+Inputs to the mixer come from channel group 0 (vehicle attitude), channels 0 (L Main Motor)), 1 (R Main Motor), 3 (Winch), 3 (Rudder), 4 (LA Motor), 7 
+(RA Motor) 8 (Dump Valve)
+
+CH1: Left Main Motor Mixer
+-------------
+
+M: 2
+The stick input from the aileron
+S: 0 0   10000   10000      0   -10000    10000
+The stick input from the throttle
+S: 0 3	 10000	 10000	    0   -10000    10000	
+
+
+
+CH2: Right Main Motor Mixer
+------------
+
+M: 2
+The stick input from the aileron
+        ScaleL  ScaleU      Offs RangeLB  RangeUB
+S: 0 0  -10000  -10000      0   -10000    10000
+The stick input from the throttle
+S: 0 3  -10000   10000	    0   -10000    10000
+
+
+
+CH3: Motor Vectoring Winch
+-----------------
+This winch follows the input from the elevator
+M: 1
+Output to servo is standard
+O:       10000	 10000      0   -10000	  10000
+Stick input from elevator
+S: 0 1   10000   10000	    0	-10000	  10000
+
+
+
+CH4: Elevator Servo Mixer
+-----------------
+This winch follows the input from the elevator
+M: 1
+Output to servo is standard
+O:       10000	 10000      0   -10000	  10000
+Stick input from elevator
+S: 0 1   10000   10000	    0	-10000	  10000
+
+
+
+CH5: Rudder Servo Mixer
+------------
+
+M: 1
+S: 0 2   10000  10000       0   -10000    10000
+
+
+
+CH6: Left Aft Rudder Motor Mixer
+------------
+
+M: 1
+O:        5000  10000       0   -10000    10000
+S: 0 2   10000  10000       0   -10000    10000
+
+
+
+CH7: Right Aft Rudder Motor Mixer
+------------
+
+M: 1
+O:        5000  10000       0   -10000    10000
+S: 0 2   10000  10000       0    10000   -10000
