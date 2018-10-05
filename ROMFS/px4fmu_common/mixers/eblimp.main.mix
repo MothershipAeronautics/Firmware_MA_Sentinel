@@ -5,71 +5,59 @@ This file controls the mixing for an eBlimp-style airship
 Inputs to the mixer come from channel group 0 (vehicle attitude), channels 0 (L Main Motor)), 1 (R Main Motor), 3 (Winch), 3 (Rudder), 4 (LA Motor), 7 
 (RA Motor) 8 (Dump Valve)
 
-CH1: Left Main Motor Mixer
+CH1: L MAIN MOTOR MIXER
 -------------
-
 M: 2
-The stick input from the aileron
-S: 0 0   10000   10000      0   -10000    10000
-The stick input from the throttle
-S: 0 3	 10000	 10000	    0   -10000    10000	
+AILRN IN    SCLLB   SCLUB   OFFST    RNGLB    RNGUB
+S: 0 0      10000   10000       0   -10000    10000
+THROT IN    SCLLB   SCLUB   OFFST    RNGLB    RNGUB
+S: 0 3	        0   20000  -10000   -10000    10000	
 
-
-
-CH2: Right Main Motor Mixer
+CH2: R MAIN MOTOR MIXER
 ------------
-
 M: 2
-The stick input from the aileron
-        ScaleL  ScaleU      Offs RangeLB  RangeUB
-S: 0 0  -10000  -10000      0   -10000    10000
-The stick input from the throttle
-S: 0 3  -10000   10000	    0   -10000    10000
-
-
+AILERON IN   SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 0      -10000 -10000       0   -10000    10000
+THROT   IN   SCCLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 3           0  20000  -10000   -10000    10000
 
 CH3: Motor Vectoring Winch
 -----------------
-This winch follows the input from the elevator
-M: 1
-Output to servo is standard
-O:       10000	 10000      0   -10000	  10000
-Stick input from elevator
-S: 0 1   10000   10000	    0	-10000	  10000
+MOTOR VECTORING WINCH FOLLOWS ELEVATOR INPUT BUT
+HAS A CENTERED DEADBAND CONSUMING 70% OF THE RANGE 
+M: 2
+WINCH OUT    SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+O:           10000  10000       0   -10000    10000
+ELEVATR IN   SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 1           0  33333  -23333        0    10000
+S: 0 1      -33333      0   23333        0    10000
 
-
-
-CH4: Elevator Servo Mixer
+CH4: ELEVATOR SERVO MIXER
 -----------------
-This winch follows the input from the elevator
 M: 1
-Output to servo is standard
-O:       10000	 10000      0   -10000	  10000
-Stick input from elevator
-S: 0 1   10000   10000	    0	-10000	  10000
+ELVTR OUT    SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+O:           10000  10000       0   -10000    10000
+ELEVATR IN   SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 1       10000  10000       0   -10000    10000
 
-
-
-CH5: Rudder Servo Mixer
+CH5: RUDDER SERVO MIXER
 ------------
-
 M: 1
-S: 0 2   10000  10000       0   -10000    10000
+RUDDER IN    SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 2       10000  10000       0   -10000    10000
 
-
-
-CH6: Left Aft Rudder Motor Mixer
+CH6: L RUDDER MOTOR MIXER
 ------------
-
 M: 1
-O:        5000  10000       0   -10000    10000
-S: 0 2   10000  10000       0   -10000    10000
+LRUDMTR OUT  SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+O:               0   5000       0   -10000    10000
+RUDDER IN    SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 2           0  10000       0   -10000    10000
 
-
-
-CH7: Right Aft Rudder Motor Mixer
+CH7: R RUDDER MOTOR MIXER
 ------------
-
 M: 1
-O:        5000  10000       0   -10000    10000
-S: 0 2   10000  10000       0    10000   -10000
+RRDMTR OUT   SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+O:               0   5000       0   -10000    10000
+RUDDER  IN   SCLLB  SCLUB   OFFST    RNGLB    RNGUB
+S: 0 2           0 -10000       0   -10000    10000
