@@ -42,13 +42,13 @@ CH5: RUDDER SERVO MIXER
 ------------
 M: 1
 RUDDER IN    SCLLB  SCLUB   OFFST    RNGLB    RNGUB
-S: 0 2       10000  10000       0   -10000    10000
+S: 0 2       10000  10000  -10000   -10000    10000
 
 CH6: L YAW MOTOR MIXER
 ------------
 M: 1
 RUDDER IN    SCLLB  SCLUB   OFFST    RNGLB    RNGUB
-S: 0 2           0  10000       0   -10000    10000
+S: 0 2           0  10000  -10000   -10000    10000
 
 CH7: R YAW MOTOR MIXER
 ------------
